@@ -1,0 +1,19 @@
+body {
+    font-family: Helvetica, Geneva, Arial, sans-serif;
+    color: purple;
+}
+
+#top {
+    margin: 50px auto;
+    padding: 20px 0px;
+    font-size: 30px;
+    text-transform: uppercase;
+    border-bottom: 5px dashed black;
+    text-decoration: bold;
+}
+
+h1#main {
+    font-size: 50px;
+    color: red;
+    text-transform: uppercase;
+}

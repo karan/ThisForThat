@@ -1,17 +1,19 @@
-import webapp2
-
+import os
 import random
 
+import webapp2
+import jinja2
+
 BUTTON = """
-    <html>
-        <body>
-            <br>
-            <form action="/">
-                <input type="submit" value="Next">
-            </form>
-        </body>
-    </html>
+    <form action="/" method="get">
+        <input type="submit" value="Refresh">
+    </form>
     """
+
+JINJA_ENV = jinja2.Environment(
+    loader=jinja2.FileSystemLoader(os.path.dirname(__file__)),
+    extensions=['jinja2.ext.autoescape']
+)
 
 THIS = ["Skynet","Digital Music Distribution","FitBit","Realtime Data",\
         "ManPacks","Landing Page","Conversion Funnel","Social Network",\
@@ -55,6 +57,7 @@ THAT = ["Facebook Platform","Erlang Enthusiasts","Collegiate Jewish Women",\
         "Christian Families","Social Outcasts","Surgeons","Sorority Chicks",\
         "Pounding Jagger Bombs","Medicinal Marijuana","Textbooks","Coffee Shops","Baristas"]
 
+
 class MainPage(webapp2.RequestHandler):
     
     def one_this(self):
@@ -64,10 +67,13 @@ class MainPage(webapp2.RequestHandler):
         return random.choice(THAT)
     
     def get(self):
-        #self.response.headers['Content-Type'] = 'text/plain'
-        self.response.write('%s <p>for</p> %s' % (self.one_this(), self.one_that()))
-        self.response.write(BUTTON)
-
+        template_values = {
+            'this': self.one_this(),
+            'that': self.one_that(),
+        }
+        template = JINJA_ENV.get_template('index.html')
+        self.response.write(template.render(template_values))
+        
 
 application = webapp2.WSGIApplication([
     ('/', MainPage),
