@@ -1,6 +1,8 @@
 import os
 import random
 
+# will move this to flask
+# https://developers.google.com/appengine/
 import webapp2
 import jinja2
 
@@ -10,8 +12,11 @@ BUTTON = """
     </form>
     """
 
+# get the templates directory
+template_dir=os.path.join(os.path.dirname(__file__), 'templates')
+# initialize my environment
 JINJA_ENV = jinja2.Environment(
-    loader=jinja2.FileSystemLoader(os.path.dirname(__file__)),
+    loader=jinja2.FileSystemLoader(template_dir),
     extensions=['jinja2.ext.autoescape']
 )
 
