@@ -45,7 +45,7 @@ THIS = ["Uber", "Skynet", "Digital Music Distribution", "FitBit",
         "News Recommender", "Neural Network", "Tesseract OCR engine",
         "Unreadable CAPTCHA", "Mobile Ecosystem", "Flickr", "Salesforce.com",
         "Twitter Filter", "Wikipedia", "Yelp", "Google App Engine",
-        "Saturday Night Live", "BitTorrent", "Starbucks", "Snapchat", "Dropbox,
+        "Saturday Night Live", "BitTorrent", "Starbucks", "Snapchat", "Dropbox",
         "Pandora", "Cryptocurrency", "Big Data Management Service", "RESTful API"]
 
 THAT = ["Facebook Platform", "Erlang Enthusiasts", "Collegiate Jewish Women",
