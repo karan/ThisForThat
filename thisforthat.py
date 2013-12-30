@@ -76,17 +76,10 @@ THAT = ["Facebook Platform", "Erlang Enthusiasts", "Collegiate Jewish Women",
 
 class MainPage(webapp2.RequestHandler):
 
-    def one_this(self):
-        return random.choice(THIS)
-
-
-    def one_that(self):
-        return random.choice(THAT)
-
     def get(self):
         template_values = {
-            'this': self.one_this(),
-            'that': self.one_that(),
+            'this': random.choice(THIS),
+            'that': random.choice(THAT),
         }
         template = JINJA_ENV.get_template('index.html')
         self.response.write(template.render(template_values))
